@@ -5,88 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIP Aviator Signals India</title>
     <style>
-        body { 
-            background-color: #0b0e11; 
-            color: white; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            text-align: center; 
-            margin: 0; 
-            padding: 20px; 
-        }
-        .container { 
-            max-width: 450px; 
-            margin: auto; 
-            border: 1px solid #30363d; 
-            padding: 25px; 
-            border-radius: 20px; 
-            background: linear-gradient(180deg, #161b22 0%, #0b0e11 100%);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        h1 { color: #f0b90b; font-size: 28px; margin-bottom: 10px; }
-        p { color: #8b949e; font-size: 16px; line-height: 1.5; }
-        .payout-img { 
-            width: 100%; 
-            border-radius: 12px; 
-            margin: 20px 0; 
-            border: 2px solid #238636;
-            display: block;
-        }
-        .timer { 
-            color: #f85149; 
-            font-weight: bold; 
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 15px 0;
-        }
-        .profit-badge {
-            background: rgba(35, 134, 54, 0.1);
-            color: #39d353;
-            padding: 10px;
-            border-radius: 8px;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        .btn { 
-            display: block; 
-            background-color: #238636; 
-            color: white; 
-            text-decoration: none; 
-            padding: 18px; 
-            border-radius: 10px; 
-            font-weight: bold; 
-            font-size: 20px; 
-            transition: transform 0.2s;
-            box-shadow: 0 4px 15px rgba(35, 134, 54, 0.4);
-        }
-        .btn:active { transform: scale(0.98); }
-        .footer-text { font-size: 12px; margin-top: 20px; opacity: 0.5; }
+        body { background-color: #0b0e11; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
+        .container { max-width: 450px; margin: auto; border: 1px solid #30363d; padding: 25px; border-radius: 20px; background: #161b22; }
+        h1 { color: #f0b90b; font-size: 28px; }
+        .payout-img { width: 100%; border-radius: 12px; margin: 20px 0; border: 2px solid #238636; }
+        .timer { color: #f85149; font-weight: bold; font-size: 18px; margin: 15px 0; height: 25px; }
+        .btn { display: block; background-color: #238636; color: white; text-decoration: none; padding: 18px; border-radius: 10px; font-weight: bold; font-size: 20px; }
     </style>
 </head>
-<script>
-    let time = 587; // время в секундах (9:47)
-    const timerElement = document.querySelector('.timer');
-    setInterval(() => {
-        let mins = Math.floor(time / 60);
-        let secs = time % 60;
-        timerElement.innerText = `⏱️ OFFER EXPIRES IN: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
-        if (time > 0) time--;
-    }, 1000);
-</script><body>
+<body>
     <div class="container">
         <h1>🚀 AVIATOR VIP SIGNALS</h1>
-        <p>Join 15,400+ Indian members winning daily with our 95% accuracy signals!</p>
+        <p>Join 15,400+ Indian members winning daily!</p>
         
-        <img src="payout.jpg" alt="Latest Payout Proof" class="payout-img">
+        <img src="payout.jpg" alt="Payout Proof" class="payout-img">
         
-        <div class="timer">⏱️ OFFER EXPIRES IN: 09:47</div>
-        
-        <div class="profit-badge">Deposit ₹300 ➡️ Get ₹5,000+ Profit</div>
+        <div id="countdown" class="timer">⏱️ OFFER EXPIRES IN: 09:47</div>
         
         <a href="https://t.me/+YbUUbwvr02BhNjc6" class="btn">JOIN TELEGRAM FREE 💸</a>
-        
-        <div class="footer-text">100% Secure & Verified Community</div>
     </div>
+
+    <script>
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                display.textContent = "⏱️ OFFER EXPIRES IN: " + minutes + ":" + seconds;
+                if (--timer < 0) { timer = 0; }
+            }, 1000);
+        }
+        window.onload = function () {
+            let fiveMinutes = 60 * 9 + 47;
+            let display = document.querySelector('#countdown');
+            startTimer(fiveMinutes, display);
+        };
+    </script>
 </body>
 </html>
