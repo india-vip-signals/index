@@ -64,7 +64,17 @@
         .footer-text { font-size: 12px; margin-top: 20px; opacity: 0.5; }
     </style>
 </head>
-<body>
+<script>
+    let time = 587; // время в секундах (9:47)
+    const timerElement = document.querySelector('.timer');
+    setInterval(() => {
+        let mins = Math.floor(time / 60);
+        let secs = time % 60;
+        timerElement.innerText = `⏱️ OFFER EXPIRES IN: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        if (time > 0) time--;
+    }, 1000);
+</script>
+    <body>
     <div class="container">
         <h1>🚀 AVIATOR VIP SIGNALS</h1>
         <p>Join 15,400+ Indian members winning daily with our 95% accuracy signals!</p>
